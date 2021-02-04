@@ -1,22 +1,33 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-module.exports = (env) => ({
-  devtool: "source-map",
+module.exports = env => ({
+  devtool: 'source-map',
   module: {
-    rules: [{
-      test: /\.css$/,
-      use: [
-        MiniCssExtractPlugin.loader, // вытянет из js
-        "css-loader", // добавит все в js
-        "postcss-loader", // добавляет автопрефиксы
-      ],
-    }, ],
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader, // вытянет из js
+          'css-loader', // добавит все в js
+          'postcss-loader', // добавляет автопрефиксы
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: './index.html',
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -27,7 +38,7 @@ module.exports = (env) => ({
       },
     }),
     new MiniCssExtractPlugin({
-      filename: "style.css",
+      filename: 'style.css',
     }),
     new OptimizeCssAssetsPlugin(),
   ],

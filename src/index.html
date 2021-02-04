@@ -11,13 +11,17 @@
   </head>
 
   <body>
+    <p class="search-text">
+      Type in any country's name <br />
+      to fetch the basic info:
+    </p>
     <form class="search-form js-search-form">
-      <input type="text" name="query" />
-      <button type="submit">Искать</button>
+      <input type="text" name="query" placeholder="Input country name" />
+      <!-- <button type="submit">Искать</button> -->
     </form>
 
-    <ul class="countries js-countries"></ul>
+    <div class="country-info js-countries"></div>
 
-    <div class="country country-info"></div>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
   </body>
 </html>

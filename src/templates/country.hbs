@@ -1,11 +1,21 @@
-{{#each this}}
+<div class="one-contry">
+    {{#each this}}
 
-<div>
-    <p>{{name}} ({{region}})</p>
-    <p>capital: {{capital}}</p>
-    <p>population: {{population}}</p>
-    <p>area: {{area}}</p>
-    <img src="{{flag}}" alt="flag" width="160" />
+    <h3 class="title">{{name}}</h3>
+    <div class="main-info">
+        <div>
+            <p><span class="title-info">Capital: </span>{{capital}}</p>
+            <p><span class="title-info">Population: </span>{{population}}</p>
+            <p><span class="title-info">Area: </span>{{area}}</p>
+            <p><span class="title-info">Languages: </span>
+                {{#each languages}}
+                <li class="title-list">{{name}}</li>{{/each}}
+            </p>
+        </div>
+
+        <div><img src="{{flag}}" alt="flag" width="320" /></div>
+    </div>
+
+    {{/each}}
+
 </div>
-
-{{/each}}
