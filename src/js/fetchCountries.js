@@ -1,6 +1,5 @@
 import { error } from '@pnotify/core/dist/PNotify.js';
-import '@pnotify/core/dist/PNotify.css';
-import '@pnotify/core/dist/BrightTheme.css';
+import '../utils/notifications.js';
 
 function fetchCountries(searchQuery) {
   const url = `https://restcountries.eu/rest/v2/name/${searchQuery}`;
